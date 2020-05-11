@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Usuarios
+    </ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content [fullscreen]="true">
+  <ion-list class="ios list-ios hydrated">  
+    <ion-item *ngFor="let User of Users" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{User.name}}
+        </h5>
+        <p> 
+          <ion-icon name="mail-outline"></ion-icon> {{User.email}} 
+        </p> 
+        <div>
+          <p><ion-icon name="business-outline"></ion-icon> Address:</p>
+          <ul>
+            <li>street: {{User.address.street}}</li>
+            <li>suite: {{User.address.suite}}</li>
+            <li>city: {{User.address.city}}</li>
+            <li>zipcode: {{User.address.zipcode}}</li> 
+          </ul>
+        </div>  
+        <p> 
+          <ion-icon name="call"></ion-icon> {{User.phone}} 
+        </p>
+        <p> 
+          <ion-icon name="globe-outline"></ion-icon> {{User.website}} 
+        </p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/album/', User.id]"> 
+          Consultar Albums<ion-icon name="arrow-redo-outline" style="zoom:2.0"></ion-icon> 
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>

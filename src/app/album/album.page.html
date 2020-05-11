@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Albumes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list class="ios list-ios hydrated">   
+    <ion-item *ngFor="let Album of Albums" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="musical-note-outline"></ion-icon> {{Album.title}}
+        </h5> 
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/photo/', Album.userId]"> 
+          Consultar Photos<ion-icon name="arrow-redo-outline" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
